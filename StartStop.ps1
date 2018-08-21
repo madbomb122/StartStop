@@ -21,7 +21,7 @@ For($i=0 ;$i -lt $args.Length ;$i++) {
 }
 
 If(Test-Path -LiteralPath $Filename -PathType Leaf) {
-	$ProcessList = gc $Filename
+	$ProcessList = Get-Content $Filename
 } Else {
 	write-host $Filename
 	write-host 'Not found'
