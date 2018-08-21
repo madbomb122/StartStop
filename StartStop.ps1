@@ -17,16 +17,17 @@ For($i=0 ;$i -lt $args.Length ;$i++) {
 		If($tmpS -eq '-f'){ $Script:Filename = $args[$i+1] }
 		ElseIf($tmpS -eq '-stop'){ $Script:StarStop = 'stop' }
 		ElseIf($tmpS -eq '-start'){ $Script:StarStop = 'start' }
+		ElseIf($tmpS -eq '-list'){ Get-Process | Select-Object Name, Path ;exit }
 	}
 }
 
-If(Test-Path -LiteralPath $Filename -PathType Leaf) {
-	$ProcessList = Get-Content $Filename
-} Else {
+If(!(Test-Path -LiteralPath $Filename -PathType Leaf)) {
 	write-host $Filename
 	write-host 'Not found'
 	Read-Host -Prompt "`nPress any key to exit"
 	exit
+} Else {
+	$ProcessList = Get-Content $Filename
 }
 
 If($StarStop -eq 'stop') {
