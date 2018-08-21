@@ -10,12 +10,12 @@ This is only a simple script
 | -start                           |  Starts all processes listed imported file       |
 | -list                            |  Lists all current running processes w/path       |
 
-Example of Stop List:
-notepad
-acrotray
+Example of Stop List: <br>
+notepad <br>
+acrotray <br>
 
-Example of Start List:
-C:\Windows\notepad.exe
-C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\acrotray.exe
+Example of Start List: <br>
+C:\Windows\notepad.exe <br>
+C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\acrotray.exe <br>
 
 Note: for the start list it MUST have the full path and file
