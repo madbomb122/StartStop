@@ -18,3 +18,7 @@ C:\Windows\notepad.exe
 C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\acrotray.exe
 
 Note: for the start list it MUST have the full path and file
+
+To See a list of Current running Processes w/path: use the following command in powershell
+
+`Get-Process | Select-Object Name, Path`
