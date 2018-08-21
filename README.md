@@ -8,6 +8,7 @@ This is only a simple script
 | -F Filename                      |  Loads list from file        |
 | -stop                            |  Stops all processes listed imported file        |
 | -start                           |  Starts all processes listed imported file       |
+| -list                            |  Lists all current running processes w/path       |
 
 Example of Stop List:
 notepad
@@ -18,7 +19,3 @@ C:\Windows\notepad.exe
 C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\acrotray.exe
 
 Note: for the start list it MUST have the full path and file
-
-To See a list of Current running Processes w/path: use the following command in powershell
-
-`Get-Process | Select-Object Name, Path`
