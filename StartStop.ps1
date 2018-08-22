@@ -33,7 +33,7 @@ If(!(Test-Path -LiteralPath $Filename -PathType Leaf)) {
 If($StarStop -eq 'stop') {
 	ForEach($Proc In $ProcessList) {
 		write-host "Stopping $Proc"
-		Stop-Process -Name $Proc
+		Stop-Process -Name $Proc -Force
 	}
 } ElseIf($StarStop -eq 'start') {
 	ForEach($Proc In $ProcessList) {
