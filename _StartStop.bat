@@ -5,7 +5,9 @@ Set Script_File=StartStop.ps1
 
 :: ProcFile is name of file you want to use
 Set ProcFile=file.txt
-set File=yes
+
+:: File = yes when you want to use the file
+set File=no
 
 :: If you want to start or stop
 :: Stop = Stop
