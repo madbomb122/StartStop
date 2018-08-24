@@ -19,3 +19,7 @@ C:\Windows\notepad.exe <br>
 C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat\acrotray.exe <br>
 
 Note: for the start list it MUST have the full path and file
+
+This is but a simple script, There will be no more changes to this script unless
+1. There is more interest in this script
+2. I get a donation or Something of that sort to make improve/changes to the script
