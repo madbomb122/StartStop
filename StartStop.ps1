@@ -1,7 +1,7 @@
 If([Environment]::OSVersion.Version.Major -ne 10) {
 	Clear-Host
 	Write-Host 'Sorry, this Script supports Windows 10 ONLY.' -ForegroundColor 'cyan' -BackgroundColor 'black'
-	If($Automated -ne 1){ Read-Host -Prompt "`nPress Any key to Close..." } ;Exit
+	Read-Host -Prompt "`nPress Any key to Close..." ;Exit
 }
 
 If(!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
@@ -21,25 +21,25 @@ For($i=0 ;$i -lt $args.Length ;$i++) {
 	}
 }
 
-If(!(Test-Path -LiteralPath $Filename -PathType Leaf)) {
+If($Filename -eq '' -or !(Test-Path -LiteralPath $Filename -PathType Leaf)) {
 	write-host $Filename
-	write-host 'Not found'
+	write-host 'File Not found or No File Specified'
 	Read-Host -Prompt "`nPress any key to exit"
-	exit
+	Exit
 } Else {
 	$ProcessList = Get-Content $Filename
+	If($StarStop -eq 'stop') {
+		ForEach($Proc In $ProcessList) {
+			write-host "Stopping $Proc"
+			Stop-Process -Name $Proc -Force
+		}
+	} ElseIf($StarStop -eq 'start') {
+		ForEach($Proc In $ProcessList) {
+			write-host "Straring $Proc"
+			Start-Process -FilePath $Proc
+		}
+	} Else {
+		write-host "Start or Stop has not been Specified"
+	}
 }
 
-If($StarStop -eq 'stop') {
-	ForEach($Proc In $ProcessList) {
-		write-host "Stopping $Proc"
-		Stop-Process -Name $Proc -Force
-	}
-} ElseIf($StarStop -eq 'start') {
-	ForEach($Proc In $ProcessList) {
-		write-host "Straring $Proc"
-		Start-Process -FilePath $Proc
-	}
-} Else {
-	write-host "Start or Stop has not been Specified"
-}
